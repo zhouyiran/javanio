@@ -24,5 +24,12 @@ public class BufferCopy {
 		readWriteBuffer.put('a');
 		System.out.println(readOnlyBuffer.get());
 		System.out.println(readWriteBuffer.position());
+		
+		// 分割缓冲区slice()
+		char[] myBuffer = new char[8];
+		CharBuffer buffer2 = CharBuffer.wrap(myBuffer);
+		buffer2.position(3).limit(5);
+		CharBuffer sliceBuffer = buffer2.slice();
+		System.out.println(sliceBuffer.length()); // 缓冲区长度为2
 	}
 }
